@@ -1,0 +1,528 @@
+:root {
+  color-scheme: light;
+  --ink: #202820;
+  --muted: #727970;
+  --line: #e4e6df;
+  --paper: #fff;
+  --canvas: #f5f5f1;
+  --accent: #557b62;
+  --accent-dark: #3e624c;
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--canvas);
+  font-size: 14px;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.topbar {
+  height: 68px;
+  padding: 0 5.4%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  color: white;
+  background: var(--accent);
+  border-radius: 8px 8px 8px 2px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 19px;
+  line-height: 1;
+}
+
+.button {
+  min-height: 38px;
+  padding: 0 15px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.button-dark {
+  color: #fff;
+  background: var(--ink);
+}
+
+.button-dark:hover {
+  background: #374239;
+}
+
+.button svg {
+  width: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.5;
+}
+
+.workspace {
+  width: min(1240px, 100%);
+  margin: 0 auto;
+  padding: 44px 5.4% 72px;
+  display: grid;
+  grid-template-columns: minmax(340px, 0.92fr) minmax(440px, 1.08fr);
+  align-items: start;
+  gap: clamp(40px, 7vw, 96px);
+}
+
+.editor {
+  min-width: 0;
+}
+
+.intro {
+  margin-bottom: 36px;
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--accent);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+}
+
+.intro h1 {
+  margin: 8px 0 7px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(34px, 4vw, 43px);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+}
+
+.intro-copy,
+.preview-hint {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.form-section {
+  padding: 0 0 27px;
+  margin: 0 0 27px;
+  border-bottom: 1px solid var(--line);
+}
+
+.section-heading,
+.section-title {
+  display: flex;
+  align-items: center;
+}
+
+.section-heading {
+  gap: 11px;
+  margin-bottom: 18px;
+}
+
+.section-heading-row {
+  justify-content: space-between;
+}
+
+.section-title {
+  gap: 11px;
+}
+
+.section-number {
+  color: var(--accent);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.section-heading h2 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.field-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px 12px;
+}
+
+.field {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 7px;
+  color: #495149;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.field-wide {
+  grid-column: 1 / -1;
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  min-height: 40px;
+  padding: 10px 11px;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid #dfe2da;
+  border-radius: 5px;
+  outline: none;
+  font-size: 13px;
+  font-weight: 400;
+  transition: border-color 140ms ease, box-shadow 140ms ease;
+}
+
+.field textarea {
+  min-height: 94px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: #a0a69d;
+}
+
+.field input:focus,
+.field textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgb(85 123 98 / 12%);
+}
+
+.text-button {
+  padding: 4px 0 4px 8px;
+  color: var(--accent-dark);
+  background: none;
+  border: 0;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.text-button:hover {
+  color: #263d2e;
+}
+
+.entry-list {
+  display: grid;
+  gap: 12px;
+}
+
+.entry-card {
+  padding: 14px;
+  background: rgb(255 255 255 / 62%);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+
+.entry-card-top {
+  min-height: 20px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.remove-button {
+  padding: 2px 0 2px 8px;
+  color: #8e625c;
+  background: none;
+  border: 0;
+  font-size: 11px;
+}
+
+.remove-button:hover {
+  color: #713d35;
+}
+
+.entry-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 10px;
+}
+
+.entry-fields .field textarea {
+  min-height: 68px;
+}
+
+.editor-note {
+  margin: -5px 0 0;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.preview-area {
+  position: sticky;
+  top: 24px;
+  min-width: 0;
+}
+
+.preview-toolbar {
+  min-height: 46px;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.preview-hint {
+  margin-top: 5px;
+  font-size: 12px;
+}
+
+.page-label {
+  padding: 5px 8px;
+  color: #717970;
+  border: 1px solid #dfe2da;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+
+.resume-page {
+  min-height: 650px;
+  padding: 48px clamp(28px, 4.2vw, 52px);
+  background: var(--paper);
+  box-shadow: 0 3px 18px rgb(34 42 34 / 7%);
+}
+
+.resume-header {
+  padding-bottom: 23px;
+  border-bottom: 2px solid var(--accent);
+}
+
+.resume-header h2 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(27px, 3.3vw, 36px);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+  overflow-wrap: anywhere;
+}
+
+.resume-title {
+  margin: 7px 0 0;
+  color: var(--accent-dark);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.contact-list {
+  padding: 0;
+  margin: 14px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px 15px;
+  list-style: none;
+  color: #687168;
+  font-size: 10px;
+}
+
+.contact-list li:empty {
+  display: none;
+}
+
+.resume-section {
+  margin-top: 23px;
+}
+
+.resume-section h3 {
+  margin: 0 0 11px;
+  color: var(--accent-dark);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.resume-section p {
+  margin: 0;
+  color: #414941;
+  font-size: 11px;
+  line-height: 1.65;
+  white-space: pre-line;
+}
+
+.resume-entry {
+  margin: 0 0 15px;
+}
+
+.resume-entry:last-child {
+  margin-bottom: 0;
+}
+
+.resume-entry-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.resume-entry h4 {
+  margin: 0;
+  color: #29332b;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.resume-entry-date {
+  flex: none;
+  color: #778076;
+  font-size: 9px;
+}
+
+.resume-entry-subtitle {
+  margin-top: 2px !important;
+  color: var(--accent-dark) !important;
+  font-size: 10px !important;
+  font-weight: 500;
+}
+
+.resume-entry-description {
+  margin-top: 5px !important;
+}
+
+.resume-section.is-empty {
+  display: none;
+}
+
+.skills-copy {
+  color: #414941;
+}
+
+@media (max-width: 850px) {
+  .workspace {
+    grid-template-columns: minmax(290px, 0.9fr) minmax(330px, 1.1fr);
+    gap: 30px;
+  }
+
+  .resume-page {
+    padding: 36px 28px;
+  }
+}
+
+@media (max-width: 680px) {
+  .topbar {
+    height: 60px;
+    padding: 0 20px;
+  }
+
+  .workspace {
+    padding: 32px 20px 48px;
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .preview-area {
+    position: static;
+    grid-row: 1;
+  }
+
+  .resume-page {
+    min-height: 540px;
+  }
+
+  .intro {
+    margin-bottom: 28px;
+  }
+}
+
+@media (max-width: 420px) {
+  .field-grid,
+  .entry-fields {
+    grid-template-columns: 1fr;
+  }
+
+  .entry-fields .field-wide,
+  .field-grid .field-wide {
+    grid-column: auto;
+  }
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 15mm;
+  }
+
+  body {
+    min-width: 0;
+    background: white;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .topbar,
+  .editor,
+  .preview-toolbar {
+    display: none !important;
+  }
+
+  .workspace {
+    width: 100%;
+    padding: 0;
+    display: block;
+  }
+
+  .preview-area {
+    position: static;
+  }
+
+  .resume-page {
+    min-height: 0;
+    padding: 0;
+    box-shadow: none;
+  }
+
+  .resume-section,
+  .resume-entry {
+    break-inside: avoid;
+  }
+}
